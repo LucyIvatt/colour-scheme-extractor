@@ -7,7 +7,7 @@ from collections import Counter
 from skimage.color import rgb2lab, deltaE_cie76
 import os
 
-TEST_PATH = "D:\\Users\\lucea\\Pictures\\Wallpapers\\bs2X9XRDGZqop8XCoCN04Z_yLJFOS4bvC9X0xCAqXcI.jpg"
+TEST_PATH = "Auto-Colour-Scheme-Generator//pexels-photo.jpeg"
 
 def rgb_to_hex(colour):
     hex_values = [hex(int(value.item())) for value in colour]
