@@ -8,9 +8,11 @@ from skimage.color import rgb2lab, deltaE_cie76
 import os
 
 TEST_PATH = "Auto-Colour-Scheme-Generator//pexels-photo.jpeg"
+DARK_GREY = (33, 37, 43)
+LIGHT_GREY = (41, 45, 53)
 
 def rgb_to_hex(colour):
-    hex_values = [hex(int(value.item())) for value in colour]
+    hex_values = [hex(int(value)) for value in colour]
     final_string = "#"
     for value in hex_values:
         sub_string = str(value).lstrip("0x")
@@ -45,7 +47,6 @@ def get_colours(image):
 
     # Get ordered colours by iterating through keys
     ordered_colours = [center_colours[i] for i in counts.keys()]
-    hex_colours = [rgb_to_hex(ordered_colours[i]) for i in counts.keys()]
     rgb_colours = [tuple(ordered_colours[i].tolist()) for i in counts.keys()]
 
     return rgb_colours
@@ -55,10 +56,19 @@ def draw_swatches(rgb_colours):
     pygame.init()
     pygame.font.init()
     font = pygame.font.SysFont('Helvetica', 20)
-    screen = pygame.display.set_mode((150 * colour_number, 100))
+    screen = pygame.display.set_mode((150 * colour_number, 130))
     x_rectangle_coord = 0
+    alternate = 1
     for i in range(colour_number):
+        alternate *= -1
+        if alternate == 1:
+            title = DARK_GREY
+        else:
+            title = LIGHT_GREY
         pygame.draw.rect(screen, x[i], (x_rectangle_coord,0, 150, 100))
+        pygame.draw.rect(screen, title, (x_rectangle_coord,100, 150, 30))
+        hexcode = font.render(rgb_to_hex(rgb_colours[i]), False, (240, 240, 240))
+        screen.blit(hexcode, (x_rectangle_coord + (150 - hexcode.get_width()) // 2, 100 + (30 - hexcode.get_height()) // 2))
         x_rectangle_coord += 150
     pygame.display.update()
     print("Press enter to exit")
