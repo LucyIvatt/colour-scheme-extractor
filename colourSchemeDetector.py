@@ -7,7 +7,7 @@ from collections import Counter
 from skimage.color import rgb2lab, deltaE_cie76
 import os
 
-TEST_PATH = "Auto-Colour-Scheme-Generator//pexels-photo.jpeg"
+TEST_PATH = "D:\\Users\\lucea\\OneDrive\\Lucy\\GitHub Projects\\Auto-Colour-Scheme-Generator\\pexels-photo.jpeg"
 DARK_GREY = (33, 37, 43)
 LIGHT_GREY = (41, 45, 53)
 
