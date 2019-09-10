@@ -5,6 +5,7 @@ import cv2
 from collections import Counter
 from skimage.color import rgb2lab, deltaE_cie76
 import os
+import sys
 
 DARK_GREY = (33, 37, 43)
 LIGHT_GREY = (41, 45, 53)
@@ -20,8 +21,12 @@ def rgb_to_hex(colour):
     return final_string
 
 def read_image(file_path):
-    image = cv2.imread(file_path) # Reads the image
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # Converts from BGR to RGB
+    try:
+        image = cv2.imread(file_path) # Reads the image
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # Converts from BGR to RGB
+    except cv2.error:
+        print(file_path, "is an Invalid file path, please try again.")
+        continue
     return image
 
 def get_colours(image):
@@ -81,7 +86,11 @@ def draw_swatches(rgb_colours):
 if __name__ == '__main__':
     program_open = True
     while program_open:
-        colour_number = int(input("How many colours would you like? "))
+        try:
+            colour_number = int(input("How many colours would you like? "))
+        except:
+            print("Invalid input, please enter a number")
+            continue
         image_path = input("What is the file path of the image you wish to use? ")
         x = get_colours(read_image(image_path))
         draw_swatches(x)
