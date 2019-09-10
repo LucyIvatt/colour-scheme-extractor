@@ -26,7 +26,7 @@ def read_image(file_path):
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # Converts from BGR to RGB
     except cv2.error:
         print(file_path, "is an Invalid file path, please try again.")
-        continue
+        sys.exit()
     return image
 
 def get_colours(image):
