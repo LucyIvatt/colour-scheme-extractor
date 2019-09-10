@@ -75,6 +75,8 @@ def draw_swatches(rgb_colours):
         x_rectangle_coord += 150
     pygame.display.update()
     print("Press enter to close the swatch")
+    if save_screenshot == True:
+        pygame.image.save(screen, screenshot_location + "//" + screenshot_name + ".jpg")
     swatch_open = True
     while swatch_open:
         for event in pygame.event.get():
@@ -86,7 +88,6 @@ def draw_swatches(rgb_colours):
                 swatch_open = False
                 pygame.quit()
                 
-    
 if __name__ == '__main__':
     program_open = True
     while program_open:
@@ -96,6 +97,14 @@ if __name__ == '__main__':
             print("Invalid input, please enter a number")
             continue
         image_path = input("What is the file path of the image you wish to use? ")
+        screenshot_choice = input("Would you like to save an image of the swatch? Y/N ")
+        if screenshot_choice.upper() == "Y":
+            screenshot_location = input("Enter the filepath you wish to save the image to: ")
+            screenshot_name = input("Enter a name for the screenshot (excluding the extension): ")
+            save_screenshot = True
+        elif screenshot_choice.upper() != "N":
+            print("Invalid input")
+            continue
         x = get_colours(read_image(image_path))
         draw_swatches(x)
         user_input_continue = input("Swatch Complete! Press 1 to analyse another image or 0 to exit: ")
