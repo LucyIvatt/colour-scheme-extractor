@@ -7,9 +7,9 @@ A personal project that will produce a colour pallete when given either a websit
 
 ## To-Do List
 - [X] Create basic program to produce the colour scheme and hex codes
-- [ ] Add custom filepath functionality
+- [x] Add custom filepath functionality
 - [ ] Add custom URL functionality
-- [ ] Allow program to be repeated during the same instance
+- [x] Allow program to be repeated during the same instance
 - [ ] Look into creating a downloadable image of the colour scheme
 
 ## Resources
