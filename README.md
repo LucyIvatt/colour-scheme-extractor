@@ -8,9 +8,8 @@ A personal project that will produce a colour pallete when given either a websit
 ## To-Do List
 - [X] Create basic program to produce the colour scheme and hex codes
 - [x] Add custom filepath functionality
-- [ ] Add custom URL functionality
+- [ ] Add custom URL functionality to get colour schemes from websites
 - [x] Allow program to be repeated during the same instance
-- [ ] Look into creating a downloadable image of the colour scheme
-
+- [x] Look into saving an image of the colour scheme
 ## Resources
 - [Article](https://towardsdatascience.com/color-identification-in-images-machine-learning-application-b26e770c4c71 "Color Identification in Images - Machine Learning Application") by Karan Bhanot used when creating the clusters of colour from the images.
