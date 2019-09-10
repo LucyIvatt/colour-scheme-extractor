@@ -80,8 +80,12 @@ def draw_swatches(rgb_colours):
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
-                    pygame.QUIT
                     swatch_open = False
+                    pygame.quit()
+            elif event.type == pygame.QUIT:
+                swatch_open = False
+                pygame.quit()
+                
     
 if __name__ == '__main__':
     program_open = True
