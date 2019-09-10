@@ -1,4 +1,3 @@
-# https://towardsdatascience.com/color-identification-in-images-machine-learning-application-b26e770c4c71
 from sklearn.cluster import KMeans
 import pygame
 import numpy as np
@@ -7,7 +6,6 @@ from collections import Counter
 from skimage.color import rgb2lab, deltaE_cie76
 import os
 
-TEST_PATH = "D:\\Users\\lucea\\OneDrive\\Lucy\\GitHub Projects\\Auto-Colour-Scheme-Generator\\pexels-photo.jpeg"
 DARK_GREY = (33, 37, 43)
 LIGHT_GREY = (41, 45, 53)
 
@@ -71,7 +69,7 @@ def draw_swatches(rgb_colours):
         screen.blit(hexcode, (x_rectangle_coord + (150 - hexcode.get_width()) // 2, 100 + (30 - hexcode.get_height()) // 2))
         x_rectangle_coord += 150
     pygame.display.update()
-    print("Press enter to exit")
+    print("Press enter to close the swatch")
     swatch_open = True
     while swatch_open:
         for event in pygame.event.get():
@@ -80,10 +78,13 @@ def draw_swatches(rgb_colours):
                     pygame.QUIT
                     swatch_open = False
     
-
-
-
-# Data input
-colour_number = int(input("How many colours would you like? "))
-x = get_colours(read_image(TEST_PATH))
-draw_swatches(x)
+if __name__ == '__main__':
+    program_open = True
+    while program_open:
+        colour_number = int(input("How many colours would you like? "))
+        image_path = input("What is the file path of the image you wish to use? ")
+        x = get_colours(read_image(image_path))
+        draw_swatches(x)
+        user_input_continue = input("Swatch Complete! Press 1 to analyse another image or 0 to exit: ")
+        if user_input_continue == "0":
+            program_open = False
