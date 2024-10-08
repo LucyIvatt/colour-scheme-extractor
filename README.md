@@ -1,4 +1,4 @@
-# Colour Scheme Extractor
+# colour-scheme-extractor
 ## Introduction
 A personal project that will produce a colour pallete when given either a website URL or local file path. This will render an image, similar to a swatch palette, and show the hex codes underneath their respective colour. 
 
