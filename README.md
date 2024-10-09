@@ -1,4 +1,7 @@
 # colour-scheme-extractor
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+
 A personal project that will creates a colour pallete when given a file. This will render an image, similar to a swatch palette, and show the hex codes underneath their respective colour. 
 
 E.g. with 4 colours selected for the example image:
